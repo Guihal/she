@@ -1,0 +1,19 @@
+[data-edition-option-id='Цвет'] {
+    .t-product__option-item {
+        .t-product__option-checkmark {
+            width: 40px !important;
+            height: 40px !important;
+            min-width: 40px !important;
+            min-height: 40px !important;
+
+            &::before {
+                display: none !important;
+            }
+        }
+    }
+}
+
+.t-product__option-variants_color {
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+}

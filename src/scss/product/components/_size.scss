@@ -1,0 +1,56 @@
+[data-edition-option-id='Размер'] {
+    .t-product__option-item {
+        border-radius: var(--sizeBR) !important;
+        background: transparent !important;
+        transition: all 0.3s !important;
+        border: 2px solid var(--sizeBC) !important;
+        padding: var(--sizeP) !important;
+        box-sizing: border-box;
+
+        @media screen and (max-width: 768px) {
+            padding: var(--sizePMob) !important;
+        }
+
+        &:last-child {
+            margin-right: 0 !important;
+        }
+
+        .t-product__option-title {
+            letter-spacing: var(--letSp);
+            transition: all 0.3s !important;
+            color: var(--textC) !important;
+            line-height: 100% !important;
+            font-size: var(--textFS) !important;
+            font-weight: 400 !important;
+        }
+
+        &.t-product__option-item_active {
+            background: var(--pink) !important;
+            border-color: var(--pink) !important;
+
+            .t-product__option-title {
+                color: #fff !important;
+            }
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                border-color: var(--hoverC) !important;
+                background: var(--hoverC) !important;
+
+                .t-product__option-title {
+                    color: #fff !important;
+                }
+            }
+        }
+
+        &:active {
+            background: var(--pink) !important;
+            border-color: var(--pink) !important;
+
+            .t-product__option-title {
+                color: #fff !important;
+            }
+        }
+    }
+}

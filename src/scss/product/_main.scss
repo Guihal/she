@@ -1,0 +1,31 @@
+.t-store__prod-snippet__container {
+    @import './components/size';
+    @import './components/color';
+    @import './components/howToDefine';
+    @import './components/accordeons';
+    @import './components/attrs';
+    @import './components/title';
+    @import './components/order';
+    @import './components/art';
+    @import './components/price';
+    @import './components/favorite';
+
+    padding-top: 48px !important;
+
+    @media screen and (max-width: 768px) {
+        padding-top: 16px !important;
+    }
+
+    @media screen and (max-width: 980px) {
+        .t-store__prod-popup__slider {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+
+        .t-slds__thumbsbullet-wrapper {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            width: 100% !important;
+        }
+    }
+}

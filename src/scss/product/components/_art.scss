@@ -1,0 +1,17 @@
+.t-store__prod-popup__sku,
+.t-store__prod-popup__sku span {
+    font-size: var(--textFS) !important;
+    color: var(--artC) !important;
+    letter-spacing: var(--letSp) !important;
+    text-transform: none !important;
+    line-height: 110% !important;
+    font-weight: 400 !important;
+
+    @media screen and (max-width: 768px) {
+        font-size: 12px !important;
+    }
+}
+
+.t-store__prod-popup__sku {
+    text-transform: lowercase !important;
+}

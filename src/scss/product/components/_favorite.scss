@@ -1,0 +1,18 @@
+.t-store__prod-popup__btn-wrapper {
+    [href='#addtofavorites'] {
+        width: 34px !important;
+        height: 29px !important;
+        border: none !important;
+        margin: 0 !important;
+        position: relative !important;
+
+        &::after,
+        &::before {
+            top: 0 !important;
+            left: 0 !important;
+            width: 34px !important;
+            height: 29px !important;
+            background-size: 100% 100%;
+        }
+    }
+}

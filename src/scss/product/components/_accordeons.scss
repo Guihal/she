@@ -1,0 +1,82 @@
+.js-store-tabs {
+    margin: 0 !important;
+
+    .t-store__tabs__item {
+        background: #f5f5f5 !important;
+        border: none !important;
+        margin-bottom: 8px;
+        border-radius: 12px !important;
+        overflow: hidden;
+        box-sizing: border-box;
+
+        &:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .t-store__tabs__content {
+            border: none !important;
+            box-sizing: border-box;
+            padding: 20px !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            font-weight: 400 !important;
+            font-size: var(--textFS) !important;
+            color: var(--linkC) !important;
+            letter-spacing: var(--letSp) !important;
+            line-height: 140% !important;
+
+            a {
+                font-weight: 400 !important;
+                font-size: var(--textFS) !important;
+                color: var(--linkC) !important;
+                letter-spacing: var(--letSp) !important;
+                line-height: 140% !important;
+                text-decoration: underline !important;
+            }
+        }
+
+        .t-store__tabs__item-button {
+            border: none !important;
+            padding: 20px !important;
+            box-sizing: border-box !important;
+
+            .t-store__tabs__item-title {
+                font-size: var(--accTitleFS) !important;
+                letter-spacing: var(--letSp) !important;
+                color: var(--titleC) !important;
+                line-height: 110% !important;
+            }
+
+            .t-store__tabs__close {
+                position: relative;
+                svg {
+                    z-index: 6;
+                    g {
+                        g {
+                            stroke: #fff !important;
+                        }
+                    }
+                }
+
+                &::before {
+                    z-index: 5;
+                    content: '' !important;
+                    width: 32px !important;
+                    height: 32px !important;
+                    position: absolute !important;
+                    left: calc((100% - 32px) / 2) !important;
+                    top: calc((100% - 32px) / 2) !important;
+                    background: var(--pink) !important;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .t-store__tabs {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}

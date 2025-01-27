@@ -1,0 +1,39 @@
+.t-store__prod-popup__btn {
+    width: 100% !important;
+    transition: all 0.3s !important;
+    background: var(--greenC) !important;
+    padding: var(--sizeP) !important;
+    border-radius: var(--sizeBR) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: auto !important;
+    letter-spacing: var(--letSp) !important;
+    font-size: var(--textFS) !important;
+    color: #fff !important;
+    font-weight: 400 !important;
+    line-height: 110% !important;
+    border: 2px solid var(--greenC) !important;
+
+    @media screen and (max-width: 768px) {
+        padding: var(--sizePMob) !important;
+    }
+
+    @media (hover: hover) {
+        &:hover {
+            border-color: var(--hoverC) !important;
+            background: var(--hoverC) !important;
+        }
+    }
+
+    &:active {
+        background: var(--pink) !important;
+        border-color: var(--pink) !important;
+    }
+}
+
+.t-store__prod-popup__btn-wrapper {
+    flex-wrap: nowrap !important;
+    display: flex !important;
+    align-items: center !important;
+}

@@ -1,0 +1,42 @@
+[data-edition-option-id='Размер'] {
+    width: fit-content;
+    position: relative;
+
+    .js-product-edition-option-name {
+        display: flex !important;
+        justify-content: space-between !important;
+
+        a {
+            font-weight: 400 !important;
+            font-size: var(--textFS) !important;
+            text-decoration: underline !important;
+            color: var(--linkC) !important;
+            letter-spacing: var(--letSp) !important;
+            line-height: 110% !important;
+        }
+    }
+}
+
+.how-to-define {
+    display: flex !important;
+    justify-content: end !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    a {
+        font-family: 'Geometria', Arial, sans-serif;
+        font-weight: 400 !important;
+        font-size: var(--textFS) !important;
+        text-decoration: underline !important;
+        color: var(--linkC) !important;
+        letter-spacing: var(--letSp) !important;
+        line-height: 110% !important;
+    }
+
+    @media screen and (max-width: 768px) {
+        a {
+            font-size: 12px !important;
+        }
+    }
+}

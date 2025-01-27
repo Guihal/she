@@ -1,0 +1,13 @@
+.js-product-edition-option-name {
+    font-weight: 400 !important;
+    font-size: var(--textFS) !important;
+    color: var(--linkC) !important;
+    letter-spacing: var(--letSp) !important;
+    line-height: 110% !important;
+    font-weight: 400 !important;
+    padding-bottom: 6px !important;
+
+    @media screen and (max-width: 768px) {
+        font-size: 12px !important;
+    }
+}
