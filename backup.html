@@ -1,0 +1,47 @@
+<script>
+    const handler = {
+        set(target, prop, value) {
+            target[prop] = value
+            return true
+            if (prop === 'colorLinks') {
+                clickOnActiveColor()
+            }
+        },
+    }
+
+    function clickOnActiveColor() {
+        document.querySelectorAll('.t-product__option-item_color input').forEach((inputColor) => {
+            let pass = false
+            window.colorLinks.forEach((obj) => {
+                if (inputColor.value === obj.color) pass = true
+            })
+
+            if (!pass) inputColor.parentNode.click()
+        })
+    }
+
+    const proxy = new Proxy(window, handler)
+</script>
+
+<script>
+    const howToDefineLink = '/size-guide'
+    
+    
+!function(){"use strict";async function t(t,e=!1){return new Promise((o=>{let n=document.querySelector(t);n?o(n):new MutationObserver(((r,i)=>{n=e?e.querySelector(t):document.querySelector(t),n&&(o(n),i.disconnect())})).observe(e||document.documentElement,{childList:!0,subtree:!0})}))}!async function(){const e=await t('[data-edition-option-id="Размер"] .js-product-edition-option-name'),o=Object.assign(document.createElement("div"),{className:"how-to-define",innerHTML:`<a href="${howToDefineLink}" target="_blank">Как определить?</a>`});e.after(o),o.prepend(e)}(),async function(){const e=await async function(){const e=await t(".js-store-prod-all-charcs"),o=await t(".js-store-prod-text");if(!e.hasChildNodes())return;const n=e.childNodes,r=[];for(const t of n){let e=t.textContent.trim();if(0===e.length)continue;if("#"!==e[0])continue;t.style.display="none",e=e.replace("#","");const o=e.split(": ");r.push({color:o[0].trim(),link:o[1].trim()}),t.remove(),window.colorLinks=r}return console.log(r),0===o.textContent.trim().length&&o.remove(),r}();if(0===e.length)return;window.addEventListener("load",(()=>{!function(t){const e=document.querySelectorAll(".t-product__option-input_color");for(let o=0;o<e.length;o++){let n=!1;for(let r=0;r<t.length;r++)t[r].color===e[o].value&&(n=!0);if(!n)return void e[o].parentNode.click()}}(e)}));const o=function(t){let e="";for(let o=0;o<t.length;o++){if(o===t.length-1){e+=`input[value="${t[o].color}"]`;break}e+=`input[value="${t[o].color}"], `}return e}(e);document.addEventListener("click",(t=>{if(!t.isTrusted)return;const n=t.target.closest(".t-product__option-item_color");if(!n)return;const r=n.querySelector(o);if(r){console.log(r);for(let t=0;t<e.length;t++)console.log(r.value,e[t].color),e[t].color===r.value&&(window.location.href=e[t].link)}}))}(),async function(){const e=await t(".t-store__prod-popup__info"),o=await t(".js-store-tabs");e.append(o)}(),async function(){const e=await t(".t-store__prod-snippet__container .t-store__prod-popup__btn"),o=await t(".t-store__prod-snippet__container .t-store__prod-popup__btn .js-store-prod-popup-buy-btn-txt");e.innerHTML=o.textContent}()}();
+</script>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+// скрипт для продкутов в карточке товара
+!function(){"use strict";function t(t){const e="[]"===(i=t.gallery)?"":JSON.parse(i.replace("[","").replace("]","").split(",")[0].trim()).img;var i;return`<a\n    href="${t.url}"\n    class="js-product swiper-slide guihal__card"\n    data-product-gen-uid="${t.uid}"\n    data-product-uid="${t.uid}"\n    data-product-part-uid="${t.partuids}"\n    data-product-url="${t.url}"\n    data-product-img="${e}"\n>\n    <div class="guihal__image-wr">\n        <img src="${e}" alt="Красивое бельишко" class="guihal_img js-product-img" width="350" height="350" />\n    </div>\n    <div class="guihal_prod-name js-product-name">${t.title}</div>\n    <div class="guihal_price js-product-price">${function(t){let e="",i=0;for(let n=(t=Math.round(t).toString()).length-1;n>=0;n--)i++,e+=i%3!=0?t[n]:`${t[n]} `;t="";for(let i=e.length-1;i>=0;i--)t+=e[i];return t+" ₽"}(t.price)}</div>\n</a>\n`}async function e(t,e=!1){return new Promise((i=>{let n=document.querySelector(t);if(n)return void i(n);new MutationObserver(((r,o)=>{n=e?e.querySelector(t):document.querySelector(t),n&&(i(n),o.disconnect())})).observe(e||document.documentElement,{childList:!0,subtree:!0})}))}async function i(){const t=await e(".js-store-prod-text");return new Promise((async(e,i)=>{let n=!0;const r=new MutationObserver((()=>{if(!n)return;const i=t.querySelectorAll(".t-typography__characteristics");if(0!==i.length)for(let t=0;t<i.length;t++){if(!i[t].textContent.includes("Связанные товары"))continue;n=!n,console.log(i[t].textContent),console.log(i[t].textContent.split(":"));let r=i[t].textContent.split(":")[1].trim();r=r.includes(",")?r.split(","):[r];let o=[];for(let t=0;t<r.length;t++){const e=r[t].trim();""!==e&&o.push(e)}return console.log(o),void e(o)}}));setTimeout((()=>{n&&e([])}),300),r.observe(t,{childList:!0,subtree:!0})}))}async function n(){const t=await e(".t-store__product-snippet");if(void 0!==t.dataset.productPartUid)return i();function i(){const e={uidCat:t.dataset.productPartUid.split(",")[0],uid:Number(t.dataset.productUid)};return console.log(e),e}return new Promise((e=>{!function n(){setTimeout((()=>{void 0!==t.dataset.productPartUid?e(i()):n()}),5)}()}))}async function r(t){const e=await fetch(`https://store.tildaapi.com/api/getproductslist/?storepartuid=${t}&getparts=true&getoptions=true&slice=1&size=100`);return await e.json()}async function o(t){if(console.log(t,"wtf"),0===t.length)return{products:[]};const e={productsuid:t},i=await fetch("https://store.tildaapi.com/api/getproductsbyuid/",{method:"POST",body:JSON.stringify(e)});return await i.json()}!async function(){const[s,u,c]=await Promise.all([e("#cards"),i(),n()]);console.log(u);let a;function d(){a=new Swiper("#guihal-swiper",{loop:!0,navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},spaceBetween:10,breakpoints:{200:{slidesPerView:1},600:{slidesPerView:2},900:{slidesPerView:3},1200:{slidesPerView:4}}})}(await async function(t,e,i){const[n,s]=await Promise.all([o(t),r(e)]);return console.log(n,s),function(t,e,i,n){i--;const r=[];for(let e=0;e<t.length;e++)r.push(t[e]);for(let o=0;o<e.length;o++){if(e[o].uid===n){i++;continue}let s=!1;for(let n=0;n<t.length;n++)if(t[n].uid===e[o].uid){i++,s=!0;break}if(!s){if(o>i)break;r.push(e[o])}}return r}(n.products,s.products,12,i)}(u,c.uidCat,c.uid)).forEach((e=>{s.innerHTML+=t(e)})),window.innerWidth>980&&d(),window.addEventListener("resize",(()=>{if(window.innerWidth>980){if(void 0!==a)return;d()}else void 0!==a&&(a.destroy(),a=void 0)}))}()}();
+</script>
+
+<style>
+.guihal-container{max-width:1200px;width:100%;padding:0 20px;margin:0 auto;-webkit-box-sizing:border-box;box-sizing:border-box}.guihal-container .guihal__title{margin-bottom:72px;font-family:"Geometria",Arial,sans-serif;font-size:32px;font-weight:400;line-height:100%;color:#333;letter-spacing:-0.06em}@media screen and (max-width: 980px){.guihal-container .guihal__title{margin-bottom:42px}}@media screen and (max-width: 480px){.guihal-container .guihal__title{margin-bottom:20px;font-size:20px}}.guihal-container .swiper-wrapper{gap:0 !important}.guihal-container .swiper-slide{-webkit-box-flex:1 !important;-ms-flex:auto !important;flex:auto !important;max-width:none !important;-ms-flex-negative:0 !important;flex-shrink:0 !important}.guihal-container .guihal_prod-name{margin-bottom:4px;font-family:"Geometria",Arial,sans-serif;font-size:20px;font-weight:400;line-height:100%;color:#333;letter-spacing:-5%}@media screen and (max-width: 480px){.guihal-container .guihal_prod-name{font-size:14px}}.guihal-container .relative{position:relative}.guihal-container .guihal_price{font-family:"Geometria",Arial,sans-serif;font-size:16px;font-weight:400;line-height:100%;color:rgba(51,51,51,0.49412);letter-spacing:-5%}@media screen and (max-width: 480px){.guihal-container .guihal_price{font-size:14px}}.guihal-container .guihal_img{aspect-ratio:1/1;-o-object-fit:cover;object-fit:cover;width:100%;height:auto}.guihal-container .guihal__image-wr{border-radius:20px;overflow:hidden;margin-bottom:20px}.guihal-container .swiper-button-prev::after,.guihal-container .swiper-button-next::after{display:none}.guihal-container .swiper-button-next{right:-10px !important}.guihal-container .swiper-button-prev{left:-10px !important}.guihal-container .swiper-button-prev svg,.guihal-container .swiper-button-next svg{width:32px;height:32px;min-width:32px}.guihal-container .swiper-button-prev svg circle,.guihal-container .swiper-button-next svg circle{fill:#b3d334 !important;-webkit-transition:all .3s;transition:all .3s}@media(hover: hover){.guihal-container .swiper-button-prev svg:hover circle,.guihal-container .swiper-button-next svg:hover circle{fill:#968ac1 !important}}.guihal-container .swiper-button-prev svg:active circle,.guihal-container .swiper-button-next svg:active circle{fill:#968ac1 !important}@media screen and (max-width: 980px){.guihal-container .swiper-button-prev,.guihal-container .swiper-button-next{display:none}}@media screen and (max-width: 980px){.guihal-container .swiper-wrapper{gap:10px !important;overflow-x:auto;overflow-y:hidden}.guihal-container .swiper-slide{width:calc(50% - 5px)}}
+</style>

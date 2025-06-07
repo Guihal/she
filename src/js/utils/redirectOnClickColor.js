@@ -1,11 +1,13 @@
+import { clickOnActiveColor } from './clickOnActiveColor'
 import { clickOnColor } from './clickOnColor'
 import { formatSelector } from './formatSelector'
 import { getColorLinks } from './getColorLinks'
 
 export async function redirectOnClickColor() {
     const data = await getColorLinks()
-
     if (data.length === 0) return
+
+    window.colorData = data
 
     window.addEventListener('load', () => {
         clickOnColor(data)
@@ -24,7 +26,6 @@ export async function redirectOnClickColor() {
 
         console.log(colorBlock)
         for (let i = 0; i < data.length; i++) {
-            console.log(colorBlock.value, data[i].color)
             if (data[i].color === colorBlock.value) {
                 window.location.href = data[i].link
             }
