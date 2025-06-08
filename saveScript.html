@@ -1,0 +1,33 @@
+<script>
+    ;(() => {
+        console.log('saveScript initialized')
+        let inputColorActive = null
+
+        function clickOnActiveColor() {
+            if (window.colorLinks === undefined) return
+
+            if (inputColorActive) {
+                inputColorActive.parentNode.click()
+                return
+            }
+            const inputs = document.querySelectorAll('.t-product__option-item_color input')
+
+            inputs.forEach((inputColor) => {
+                let pass = false
+
+                window.colorLinks.forEach((obj) => {
+                    if (inputColor.value === obj.color) pass = true
+                })
+
+                if (!pass) {
+                    inputColor.parentNode.click()
+                    inputColorActive = inputColor
+                }
+            })
+        }
+
+        document.addEventListener('click', () => {
+            clickOnActiveColor()
+        })
+    })()
+</script>
